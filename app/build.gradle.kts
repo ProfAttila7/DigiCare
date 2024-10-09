@@ -51,6 +51,14 @@ dependencies {
     implementation("com.firebaseui:firebase-ui-auth:8.0.1")
 
     implementation("com.google.firebase:firebase-storage")
+
+
+
+
+    implementation("com.microsoft.cognitiveservices.speech:client-sdk:1.40.0")
+    implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
+    implementation("com.google.guava:guava:31.0.1-android")
+    implementation("org.reactivestreams:reactive-streams:1.0.4")
 }
 
 // Apply the Google services plugin at the end
