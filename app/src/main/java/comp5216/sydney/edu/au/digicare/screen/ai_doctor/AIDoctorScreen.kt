@@ -26,6 +26,8 @@ import comp5216.sydney.edu.au.digicare.model.service.GeminiIntegrationService
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -34,6 +36,9 @@ fun AI_Doctor(navController: NavController) {
     val context = LocalContext.current
     val analysisResult by viewModel.analysisResult.collectAsState()
     val coroutineScope = rememberCoroutineScope()
+
+    // Scroll state for the Column
+    val scrollState = rememberScrollState()
 
     Scaffold(
         containerColor = ColorBackground,
@@ -64,6 +69,7 @@ fun AI_Doctor(navController: NavController) {
                 .fillMaxWidth()
                 .padding(paddings)
                 .padding(bottom = 10.dp)
+                .verticalScroll(scrollState)
         ) {
             Box() {
                 Image(
@@ -132,7 +138,7 @@ fun ChatBox(resultText: String) {
         verticalAlignment = Alignment.Top
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ai_doctor), // Replace with your icon resource
+            painter = painterResource(id = R.drawable.ai_doctor), 
             contentDescription = "AI Robot",
             modifier = Modifier.size(60.dp)
         )
